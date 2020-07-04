@@ -39,7 +39,7 @@
 ```  
 
 ## Project Goals
-Developing package to interface with the rtabmap_ros package.
+Developing package to interface with the ```rtabmap_ros``` package.
 Adding a RGB-D camera on the custom robot.
 Generating the appropriate launch files to launch the robot and map its surrounding environment.
 When your robot is launched teleop around the room to collect the sensor data for generating the map.
