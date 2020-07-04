@@ -5,51 +5,45 @@
 # Project 04 (of 05) : Map My World
 ## Directory Structure
 ```
-.Map_My_World
-   ├── my_robot
-   │   ├── CMakeLists.txt
-   │   ├── config
-   │   │   ├── base_local_planner_params.yaml
-   │   │   ├── costmap_common_params.yaml
-   │   │   ├── global_costmap_params.yaml
-   │   │   ├── local_costmap_params.yaml
-   │   │   └── __MACOSX
-   │   ├── launch
+.Map_My_World                                        # Map_My_World project
+   ├── my_robot                                      # my_robot package
+   │   ├── CMakeLists.txt                            # compiler instructions
+   │   ├── launch                                    # launch folder for launch files
    │   │   ├── amcl.launch
-   │   │   ├── config_rviz.rviz
+   │   │   ├── config_rviz.rviz                      # configuration file for RViz for quick setup
    │   │   ├── localization.launch
-   │   │   ├── mapping.launch
+   │   │   ├── mapping.launch                        # launches the RTAB-Map mapping node
    │   │   ├── robot_description.launch
-   │   │   ├── teleop.launch
-   │   │   └── world.launch
+   │   │   ├── teleop.launch                         # launches teleop package to control robot using keyboard
+   │   │   └── world.launch                          # launches gazebo environment and RViz
    │   ├── maps
    │   │   ├── my_map.pgm  (!!upload this!!)
-   │   │   └── my_map.yaml
-   │   ├── meshes
-   │   │   ├── hokuyo.dae
-   │   │   └── RoboLeg.STL
-   │   ├── package.xml
-   │   ├── urdf
+   │   │   └── my_map.yaml                           # metadata about the map
+   │   ├── meshes                                    # meshes folder for sensor and custom model
+   │   │   ├── hokuyo.dae                            # mesh for laser scanner
+   │   │   └── RoboLeg.STL                           # CAD file of Robot's leg (made in SolidWorks)
+   │   ├── package.xml                               # package info
+   │   ├── urdf                                      # urdf folder for xarco files
    │   │   ├── my_robot.gazebo
    │   │   └── my_robot.xacro
-   │   └── worlds
+   │   └── worlds                                    # world folder for world files
    │       └── Avadhoot.world
-   ├── teleop_twist_keyboard
+   ├── teleop_twist_keyboard                         # ROS package
    │   ├── CHANGELOG.rst
-   │   ├── CMakeLists.txt
-   │   ├── package.xml
+   │   ├── CMakeLists.txt                            # compiler instructions
+   │   ├── package.xml                               # package info
    │   ├── README.md
-   │   └── teleop_twist_keyboard.py
+   │   └── teleop_twist_keyboard.py                  # python script for controlling robot
    ├── LICENSE
    ├── README.md
 ```  
 
 ## Project Goals
-develop your own package to interface with the rtabmap_ros package.
-addition of an RGB-D camera.
-generate the appropriate launch files to launch the robot and map its surrounding environment.
-When your robot is launched you will teleop around the room to collect the sensor data for generating the map.
-Use the RTAB Mapping package to extract the map from the data collected.
+Developing package to interface with the rtabmap_ros package.
+Adding a RGB-D camera on the custom robot.
+Generating the appropriate launch files to launch the robot and map its surrounding environment.
+When your robot is launched teleop around the room to collect the sensor data for generating the map.
+Use the ```rtabmap-databaseViewer``` to extract the map from the data collected.
 
 ## Output
 
@@ -70,13 +64,18 @@ $ sudo apt-get update && sudo apt-get upgrade -y
 ```
 
 #### 2. Clone the files in /home/workspace
+Cloning this repository:
 ```
 $ cd /home/robond/workspace/catkin_ws/src
 $ git clone https://github.com/Avadhoot94/Map_My_World.git
+```
+
+Cloning ```ROS teleop``` package:
+```
 $ cd /home/robond/workspace/catkin_ws/src/Map_My_World
 $ git clone https://github.com/ros-teleop/teleop_twist_keyboard
 ```
-#### 3. Build the package
+#### 3. Build the packages
 ```
 $ cd /home/robond/workspace/catkin_ws
 $ catkin_make
