@@ -92,7 +92,7 @@ $ roslaunch my_robot world.launch
 Make sure the ```fixed frame``` in ```RViz``` is ```odom```
 
 #### 5. Launch the mapping node
-**Remember, launching the mapping node deletes any previously mapped database in place on launch start up!**
+**Remember, launching the mapping node deletes any previously mapped database in place on launch start up!** (Check grammar)
 ```
 $ roslaunch my_robot mapping.launch
 ```
@@ -110,7 +110,7 @@ The data will be stored as ```rtabmap.db``` in the following file location:
 
 ```/home/robond/workspace/catkin_ws/src/Map_My_World/my_robot/maps```
 
-**Remember, launching the mapping node deletes any previously mapped database in place on launch start up!**
+**Remember, launching the mapping node deletes any previously mapped database in place on launch start up!** (Check grammar)
 
 #### 8. Explore the generated map using ```rtabmap-databaseViewer```
 ```
