@@ -116,13 +116,13 @@ $ rtabmap-databaseViewer /home/robond/workspace/catkin_ws/src/Map_My_World/my_ro
 
 
 ## Missing minor feature
-The ```~/Where_Am_I/my_robot/world/Avadhoot.world``` file uses ```~/Where_Am_I/my_robot/meshes/RoboLeg.STL``` for the legs of the **static** robot model as indicated in the picture below:
+The ```~/Map_My_World/my_robot/world/Avadhoot.world``` file uses ```~/Map_My_World/my_robot/meshes/RoboLeg.STL``` for the legs of the **static** robot model as indicated in the picture below:
 
 <img src="output/Reference_roboleg.PNG" width="500" >
 
 <p>&nbsp;</p>
 
-The ```Avadhoot.world``` file thus, contains the directory address of the ```RoboLeg.STL``` as ```/home/robond/workspace/catkin_ws/src/Where_Am_I/my_robot/meshes/RoboLeg.STL```<br/> **Replace all** the addresses appropriately to see the legs. 
+The ```Avadhoot.world``` file thus, contains the directory address of the ```RoboLeg.STL``` as ```/home/robond/workspace/catkin_ws/src/Map_My_World/my_robot/meshes/RoboLeg.STL```<br/> **Replace all** the addresses appropriately to see the legs. 
 
 Else the package will **run without errors** but without the legs as seen below:
 
