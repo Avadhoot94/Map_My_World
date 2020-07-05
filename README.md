@@ -117,6 +117,10 @@ The data will be stored as ```rtabmap.db``` in the following file location:
 $ rtabmap-databaseViewer /home/robond/workspace/catkin_ws/src/Map_My_World/my_robot/maps/rtabmap.db
 ```
 
+#### 9. Save 2D occupancy map
+```
+$ rosrun map_server map_saver -f my_map
+```
 
 
 ## Missing minor feature
