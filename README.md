@@ -19,7 +19,6 @@
    │   ├── maps
    │   │   ├── my_map.pgm                            # 2D map
    │   │   ├── my_map.yaml                           # metadata about the map
-   │   │   └── rtabmap.db                            # Data file of mapping
    │   ├── meshes                                    # meshes folder for sensor and custom model
    │   │   ├── hokuyo.dae                            # mesh for laser scanner
    │   │   └── RoboLeg.STL                           # CAD file of Robot's leg (made in SolidWorks)
@@ -60,9 +59,9 @@ Use the ```rtabmap-databaseViewer``` to extract the map from the data collected.
 ### World as seen in gazebo
 <img src="output/world_top_view.PNG" width="700">
 
-The ```rtabmap.db```, ```my_map.pgm```, ```map.yaml``` files are included in their original position as created in my system.
+The ```my_map.pgm```, ```map.yaml``` files are included in their original directory location as created in my system.
+Consider deleting them or they will just get written over.
 
-If you want to view the database (it will be deleted if you start creating your own, at step [5](#5-Launch-the-mapping-node), skip to [step 8](#8-Explore-the-generated-map-using-rtabmap-databaseViewer)
 
 
 ## Environment
