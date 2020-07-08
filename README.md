@@ -17,8 +17,9 @@
    │   │   ├── teleop.launch                         # launches teleop package to control robot using keyboard
    │   │   └── world.launch                          # launches gazebo environment and RViz
    │   ├── maps
-   │   │   ├── my_map.pgm  (!!upload this!!)
-   │   │   └── my_map.yaml                           # metadata about the map
+   │   │   ├── my_map.pgm                            # 2D map
+   │   │   ├── my_map.yaml                           # metadata about the map
+   │   │   └── rtabmap.db                            # Data file of mapping
    │   ├── meshes                                    # meshes folder for sensor and custom model
    │   │   ├── hokuyo.dae                            # mesh for laser scanner
    │   │   └── RoboLeg.STL                           # CAD file of Robot's leg (made in SolidWorks)
@@ -50,6 +51,18 @@ When your robot is launched teleop around the room to collect the sensor data fo
 Use the ```rtabmap-databaseViewer``` to extract the map from the data collected.
 
 ## Output
+Point cloud map (3D map)
+<img src="output/rtab map.png">
+
+2D occupancy grid map (2D map)
+<img src="output/2D_map.png">
+
+World as seen in gazebo
+<img src="output/world_top_view.png">
+
+The ```rtabmap.db```, ```my_map.pgm```, ```map.yaml``` files are included in their original position as created in my system.
+
+If you want to view the database (it will be deleted if you start creating your own, at step: [(5. Launch the mapping node)](#5-Launch-the-mapping-node)), skip to [step 8](#8-Explore-the-generated-map-using-rtabmap-databaseViewer)
 
 
 ## Environment
@@ -58,7 +71,12 @@ Tested on Ubuntu 16.04.6 LTS, ROS Kinetic, Boost 1.58
 ## Setup and run
 Note: The commands in this README work, considering that the main workspace is located at ```/home/robond/workspace/catkin_ws/src```      
       Notice the ```robond``` username. Make appropriate changes for your system.
-      
+
+**Important: Make adjustments to the address of ```mapping.launch ``` file at line 5.**
+
+The file is located here:``` ~/Map_My_World/my_robot/launch```
+
+
 Warning: Some minor features will not work in your system if your username of the system is different.
 
 [Click here for the fix and to learn more](#Missing-minor-feature)
@@ -92,7 +110,7 @@ $ roslaunch my_robot world.launch
 Make sure the ```fixed frame``` in ```RViz``` is ```odom```
 
 #### 5. Launch the mapping node
-**Remember, launching the mapping node deletes any previously mapped database in place on launch start up!** (Check grammar)
+**Remember, launching the mapping node deletes any previously mapped database in place, on launch start up!** 
 ```
 $ roslaunch my_robot mapping.launch
 ```
@@ -102,25 +120,32 @@ $ roslaunch my_robot teleop.launch
 ```
 #### 7. Collect environment data
 Drive around in the world using the keyboard controls from ```teleop``` node.
-The RGB-D camera on the robot will collect the data for generating the map.
-For best results, go over similar paths two or three times.
 
-Once data collection is done, stop the mapping node by pressing ```Ctrl```+``` C```
+The RGB-D camera on the robot will collect the data for generating the map.
+
+For best results, go over similar paths two or three times and drive at slow speed (especially rotational).
+These speeds can be controlled in the ```teleop``` node.
+
+Do not stop any running node yet.
+
+#### 9. Save 2D occupancy map
+```
+$ rosrun map_server map_saver -f /home/robond/workspace/catkin_ws/src/Map_My_World/my_robot/maps/my_map
+```
+
+Once data collection is done and map is saved, stop the mapping node by pressing ```Ctrl```+``` C```
 The data will be stored as ```rtabmap.db``` in the following file location:
 
 ```/home/robond/workspace/catkin_ws/src/Map_My_World/my_robot/maps```
 
-**Remember, launching the mapping node deletes any previously mapped database in place on launch start up!** (Check grammar)
+**Remember, launching the mapping node deletes any previously mapped database in place, on launch start up!** 
 
 #### 8. Explore the generated map using ```rtabmap-databaseViewer```
 ```
 $ rtabmap-databaseViewer /home/robond/workspace/catkin_ws/src/Map_My_World/my_robot/maps/rtabmap.db
 ```
 
-#### 9. Save 2D occupancy map
-```
-$ rosrun map_server map_saver -f my_map
-```
+
 
 
 ## Missing minor feature
