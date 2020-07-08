@@ -51,14 +51,14 @@ When your robot is launched teleop around the room to collect the sensor data fo
 Use the ```rtabmap-databaseViewer``` to extract the map from the data collected.
 
 ## Output
-Point cloud map (3D map)
-<img src="output/rtab map.png">
+### Point cloud map (3D map)
+<img src="output/rtab map.PNG">
 
-2D occupancy grid map (2D map)
-<img src="output/2D_map.png">
+### 2D occupancy grid map (2D map)
+<img src="output/2D_map.PNG">
 
-World as seen in gazebo
-<img src="output/world_top_view.png">
+### World as seen in gazebo
+<img src="output/world_top_view.PNG">
 
 The ```rtabmap.db```, ```my_map.pgm```, ```map.yaml``` files are included in their original position as created in my system.
 
