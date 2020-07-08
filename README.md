@@ -52,17 +52,17 @@ Use the ```rtabmap-databaseViewer``` to extract the map from the data collected.
 
 ## Output
 ### Point cloud map (3D map)
-<img src="output/rtab map.PNG">
+<img src="output/rtab map.PNG" width="700">
 
 ### 2D occupancy grid map (2D map)
-<img src="output/2D_map.PNG">
+<img src="output/2D_map.PNG" width="700">
 
 ### World as seen in gazebo
-<img src="output/world_top_view.PNG">
+<img src="output/world_top_view.PNG" width="700">
 
 The ```rtabmap.db```, ```my_map.pgm```, ```map.yaml``` files are included in their original position as created in my system.
 
-If you want to view the database (it will be deleted if you start creating your own, at step: [(5. Launch the mapping node)](#5-Launch-the-mapping-node)), skip to [step 8](#8-Explore-the-generated-map-using-rtabmap-databaseViewer)
+If you want to view the database (it will be deleted if you start creating your own, at step [5](#5-Launch-the-mapping-node), skip to [step 8](#8-Explore-the-generated-map-using-rtabmap-databaseViewer)
 
 
 ## Environment
@@ -160,3 +160,5 @@ The ```Avadhoot.world``` file thus, contains the directory address of the ```Rob
 Else the package will **run without errors** but without the legs as seen below:
 
 <img src="output/Reference_roboleg_error.PNG" width="500" >
+
+[Go back to *Setup and run*](#Setup-and-run)
